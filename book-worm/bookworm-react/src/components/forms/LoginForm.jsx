@@ -5,16 +5,19 @@ import Validator from 'validator';
 import InlineError from '../messages/InlineError';
 
 class LoginForm extends Component {
-    state = {
-        data: {
+    constructor(props) {
+        super(props);
+        this.state = {
+            data: {
             email: '',
             password: ''
         },
         loading: false,
         errors: {} 
+        }
     };
 
-    onChange = e => {
+    onChange = (e) => {
         this.setState({
             data: { ...this.state.data, [e.target.name]: e.target.value }
         });
